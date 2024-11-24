@@ -24,6 +24,7 @@ Implementar la aqruitectura Batch para Big Data, mediante procesos de automatiza
 ## 1.2. Que aspectos NO cumplió o desarrolló de la actividad propuesta por el profesor (requerimientos funcionales y no funcionales)
 - Algunos procesos si requieren de la intervención humana para dar inicio.
 - A nivel de ingesta de datos no se hace desde una base de datos relacional hacia S3
+- A nivel de capa de aplicación no se ejecuta el programa correctamente y se limita su uso únicamente a descargar contenido.
 
 # 2. información general de diseño de alto nivel, arquitectura, patrones, mejores prácticas utilizadas.
 ![image](https://github.com/user-attachments/assets/1e17c673-43ec-42b6-ac09-2588a0e5cf0d)
