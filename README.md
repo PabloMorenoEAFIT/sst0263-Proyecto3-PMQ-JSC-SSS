@@ -3,7 +3,7 @@
 # Estudiante(s): 
 - Pablo Moreno Quintero - pmorenoq@eafit.edu.co
 - Juan Sebastían Camacho Palacio - jscamachop@eafit.edu.co  
-- Samuel Salazar Salazar - 
+- Samuel Salazar Salazar - ssalazar1@eafit.edu.co
 
 # Profesor: Edwin Montoya - emontoya@eafit.edu.co
 
