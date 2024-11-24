@@ -11,40 +11,60 @@
 # Proyecto 3 - Big Data
 
 # 1. breve descripción de la actividad
-
+Implementar la aqruitectura Batch para Big Data, mediante procesos de automatización para el proceso de captura, procesamiento y salida de datos, con el fin de realizar una gestión de los datos de Covid en Colombia.
 
 ## 1.1. Que aspectos cumplió o desarrolló de la actividad propuesta por el profesor (requerimientos funcionales y no funcionales)
-- ingesta de datos desde una [API](https://www.datos.gov.co/resource/gt2j-8ykr.json) del gobierno
+- Creación de clúster EMR
+- Ingesta de datos desde una [API](https://www.datos.gov.co/resource/gt2j-8ykr.json) del gobierno
+- Procesamiento de datos mediante PySpark y SparkSQL
+- Salida de datos mediante SparkSQL
+- Automatización de procesos mediante "Stpes"
+
 ## 1.2. Que aspectos NO cumplió o desarrolló de la actividad propuesta por el profesor (requerimientos funcionales y no funcionales)
+- Algunos procesos si requieren de la intervención humana para dar inicio.
+- A nivel de ingesta de datos no se hace desde una base de datos relacional hacia S3
 
 # 2. información general de diseño de alto nivel, arquitectura, patrones, mejores prácticas utilizadas.
+![image](https://github.com/user-attachments/assets/1e17c673-43ec-42b6-ac09-2588a0e5cf0d)
 
 # 3. Descripción del ambiente de desarrollo y técnico: lenguaje de programación, librerias, paquetes, etc, con sus numeros de versiones.
+- Librerias utilizadas
+  - json / Python
+  - requests 2.20 / Python
+  - boto3 1.16.25 / Python
+  - pyspark.slq / Pyspark
+ 
+ - Lenguajes de programación
+   - Python 3.6
+   - pyspark 3.0.1
+   
 
-## como se compila y ejecuta.
-## detalles del desarrollo.
-## detalles técnicos
-## descripción y como se configura los parámetros del proyecto (ej: ip, puertos, conexión a bases de datos, variables de ambiente, parámetros, etc)
-## opcional - detalles de la organización del código por carpetas o descripción de algún archivo. (ESTRUCTURA DE DIRECTORIOS Y ARCHIVOS IMPORTANTE DEL PROYECTO, comando 'tree' de linux)
-## 
-## opcionalmente - si quiere mostrar resultados o pantallazos 
+*Ver guía adjunta en el repositorio*
 
-# 4. Descripción del ambiente de EJECUCIÓN (en producción) lenguaje de programación, librerias, paquetes, etc, con sus numeros de versiones.
+# 4. Descripción del ambiente de EJECUCIÓN.
 
-# IP o nombres de dominio en nube o en la máquina servidor.
+Para llevar los datos desde la API hasta S3
+``` Python
+import requests
+import boto3
 
-## descripción y como se configura los parámetros del proyecto (ej: ip, puertos, conexión a bases de datos, variables de ambiente, parámetros, etc)
+# Descargar archivo desde la API y guardarlo en S3
+def download_covid_data_to_s3():
+    url = 'https://www.datos.gov.co/resource/gt2j-8ykr.json'
+    response = requests.get(url)
+    s3 = boto3.client('s3')
+    s3.put_object(Bucket='bucket-rawdata-p3-telematica', Key='covid_data.json', Body=response.content)
 
-## como se lanza el servidor.
+download_covid_data_to_s3()
+```
 
-## una mini guia de como un usuario utilizaría el software o la aplicación
+ETL para mejorar la calidad de los datos
+``` pyspark
 
-## opcionalmente - si quiere mostrar resultados o pantallazos 
+```
 
-# 5. otra información que considere relevante para esta actividad.
+
+
 
 # referencias:
-<debemos siempre reconocer los créditos de partes del código que reutilizaremos, así como referencias a youtube, o referencias bibliográficas utilizadas para desarrollar el proyecto o la actividad>
-## sitio1-url 
-## sitio2-url
-## url de donde tomo info para desarrollar este proyecto
+
