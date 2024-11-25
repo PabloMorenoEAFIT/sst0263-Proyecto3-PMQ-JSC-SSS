@@ -6,7 +6,7 @@ s3 = boto3.client('s3')
 
 # Información del bucket y archivo
 bucket_name = "bucket-refineddata-p3-telematica"
-object_key = "/refined_covid_data_csv"  # Cambia el nombre del archivo según sea necesario
+object_key = "/refined_covid_data_csv"
 local_file = "refined_covid_data.csv"
 
 # Descargar el archivo desde S3
